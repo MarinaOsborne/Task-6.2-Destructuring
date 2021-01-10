@@ -1,11 +1,4 @@
-
-import  calculateState, { sortState } from '../app';
-
-test('should check state', () => {
-  expect(calculateState({ name: 'Маг', health: 51 })).toBe('healthy');
-  expect(calculateState({ name: 'Маг', health: 16 })).toBe('wounded');
-  expect(calculateState({ name: 'Маг', health: 13 })).toBe('critical');
-});
+import calculateState, { sortState } from '../app';
 
 test('should check order', () => {
   expect(sortState([
@@ -18,6 +11,15 @@ test('should check order', () => {
     { name: 'мечник', health: 10 },
   ]);
   expect(sortState([
+    { name: 'мечник', health: 10 },
+    { name: 'маг', health: 100 },
+    { name: 'лучник', health: 80 },
+  ])).not.toBe([
+    { name: 'маг', health: 100 },
+    { name: 'лучник', health: 80 },
+    { name: 'мечник', health: 10 },
+  ]);
+  expect(sortState([
     { name: 'мечник', health: 100 },
     { name: 'маг', health: 10 },
     { name: 'лучник', health: 10 },
@@ -25,5 +27,14 @@ test('should check order', () => {
     { name: 'мечник', health: 100 },
     { name: 'маг', health: 10 },
     { name: 'лучник', health: 10 },
+  ]);
+  expect(sortState([
+    { name: 'мечник', health: 100 },
+    { name: 'маг', health: 10 },
+    { name: 'лучник', health: 10 },
+  ])).not.toBe([
+  { name: 'мечник', health: 100 },
+  { name: 'маг', health: 10 },
+  { name: 'лучник', health: 10 },
   ]);
 });
