@@ -1,13 +1,13 @@
 // TODO: write your code here
 
-import sum from './basic';
+// import sum from './basic';
 
 // console.log('worked');
 
 // console.log(sum([1, 2]));
 
-export function sortState(items) {
-  items.sort(function (a, b) {
+export default function sortState(items) {
+  items.sort((a, b) => {
     if (a.health < b.health) {
       return 1;
     }

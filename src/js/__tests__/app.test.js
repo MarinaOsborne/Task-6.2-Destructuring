@@ -1,4 +1,4 @@
-import calculateState, { sortState } from '../app';
+import sortState from '../app';
 
 test('should check order', () => {
   expect(sortState([
@@ -33,8 +33,8 @@ test('should check order', () => {
     { name: 'маг', health: 10 },
     { name: 'лучник', health: 10 },
   ])).not.toBe([
-  { name: 'мечник', health: 100 },
-  { name: 'маг', health: 10 },
-  { name: 'лучник', health: 10 },
+    { name: 'мечник', health: 100 },
+    { name: 'маг', health: 10 },
+    { name: 'лучник', health: 10 },
   ]);
 });
