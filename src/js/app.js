@@ -1,11 +1,15 @@
 
 // console.log('worked');
-const character = {};
-export default function removeArray() {
-  for (let i = 0; i < character.special.length; i += 1) {
-    if (character.special[i].description === undefined) {
-      character.special[i].description = 'Описание недоступно';
-    }
+export default function removeArray(character) {
+  const { special } = character;
+  const result = [];
+  for (let i = 0; i < special.length; i += 1) {
+    const {
+      id, name, icon, description = 'Описание недоступно',
+    } = special[i];
+    result.push({
+      id, name, icon, description,
+    });
   }
-  return character.special;
+  return result;
 }
